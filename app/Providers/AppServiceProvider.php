@@ -22,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->loadHelpers();
+
+        //View::share('themeSettings', ThemeHelper::themeSettings());
     }
 
     /**
@@ -47,6 +49,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::include('backend.layouts.forms.image-with-preview', 'imageWithPreview2');
 
         View::share('themeSettings', ThemeHelper::themeSettings());
+
+        URL::forceScheme('https');
+        $this->app['request']->server->set('HTTPS', 'on');
     }
 
     protected function loadHelpers()

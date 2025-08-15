@@ -17,7 +17,7 @@ class MailServiceConfigProvider extends ServiceProvider
     {
         if (\Schema::hasTable('email_configs')) {
             $mail = DB::table('email_configs')->first();
-            if ($mail) 
+            if ($mail)
             {
                 $config = array(
                     'driver'     => $mail->protocol,
